@@ -28,12 +28,10 @@ const Items = () => {
   const { data: youtubeData } = useSWR<YouTubeData>('/api/youtube', fetcher)
   const { data: githubData } = useSWR<GithubData>('/api/github', fetcher)
   const { data: likesData } = useSWR<Likes>('/api/likes', fetcher)
-  const { data: viewsData } = useSWR<Views>('/api/views', fetcher)
-  const { data: wakatimeData } = useSWR<WakatimeData>('/api/wakatime', fetcher)
 
   const getAge = () =>
     (
-      dayjs().diff('2006-04-11', 'milliseconds') /
+      dayjs().diff('1993-08-25', 'milliseconds') /
       (365.25 * 24 * 60 * 60 * 1000)
     ).toFixed(9)
 
@@ -62,18 +60,6 @@ const Items = () => {
         ? `${Math.round(wakatimeData.seconds / 60 / 60)} hrs`
         : undefined,
       icon: <IconClock />,
-    },
-    {
-      title: 'YouTube Subscribers',
-      link: 'https://youtube.com/@tszhong0411',
-      value: youtubeData?.subscribers,
-      icon: <IconBrandYoutube />,
-    },
-    {
-      title: 'YouTube Views',
-      link: 'https://youtube.com/@tszhong0411',
-      value: youtubeData?.views,
-      icon: <IconBrandYoutube />,
     },
     {
       title: 'GitHub Followers',
